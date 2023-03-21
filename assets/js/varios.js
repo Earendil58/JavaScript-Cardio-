@@ -494,5 +494,118 @@
 
 //------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+// function hola(nombre, callback) {
+//     setTimeout(function () {
+//         console.log('Hola ' + nombre);
+//         callback();
+//     }, 2000);
+// }
+
+// function adios(nombre, otroCallback) {
+//     setTimeout(() => {
+//         console.log('adios ' + nombre);
+//         otroCallback();
+//     }, 1000);
+// }
 
 
+// console.log('inicio');
+// hola('Menem', function () {
+//     adios('Carlos', function () {
+//         console.log('Terminando proceso async');
+//     })
+// });
+// console.log('fin');
+
+//------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+// function hola(nombre, callback) {
+//     setTimeout(function () {
+//         console.log('Hola ' + nombre);
+//         callback();
+//     }, 2000);
+// }
+
+// function hablar(callbackHablar) {
+//     setTimeout(() => {
+//         console.log('Blablabla');
+//         callbackHablar();
+//     }, 1000)
+// }
+
+// function adios(nombre, otroCallback) {
+//     setTimeout(function () {
+//         console.log('adios ' + nombre);
+//         otroCallback();
+//     }, 1000);
+// }
+
+// function conversacion(nombre, veces, callback) {
+//     if (veces > 0) {
+//         hablar(function () {
+//             conversacion(nombre, --veces, callback);
+//         });
+//     } else {
+//         adios(nombre, callback);
+//     }
+// }
+
+
+// console.log('inicio');
+
+// hola('Carlos', function (nombre) {
+//     conversacion(nombre, 3, function () {
+//         console.log('Proceso terminado');
+//     });
+// });
+
+
+
+
+// hola('Menem', function () {
+//     hablar(function () {
+//         adios('Carlos', function () {
+//             console.log('Terminando proceso async');
+//         });
+//     });
+// });
+// console.log('fin');
+
+//------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+function hola(nombre) {
+    return new Promise((resolve, reject) => {
+        setTimeout(function () {
+            console.log('Hola ' + nombre);
+            resolve(nombre);
+        }, 2000);
+    });
+}
+
+function hablar(nombre) {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            console.log('Blablabla');
+            // resolve(nombre);
+            reject('Hay un error con la function hablar');
+        }, 1000);
+    });
+}
+
+function adios(nombre) {
+    return new Promise((resolve, reject) => {
+        setTimeout(function () {
+            console.log('adios ' + nombre);
+            resolve(nombre);
+        }, 1000);
+    });
+}
+
+
+
+console.log('Iniciando el proceso');
+hola('carlos')
+    .then(hablar)
+    .then(adios)
+    .catch(error => console.log(error));
+console.log('Finalizando el proceso'); 
