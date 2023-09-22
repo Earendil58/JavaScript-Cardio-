@@ -573,7 +573,46 @@
 
 //------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-function hola(nombre) {
+// function hola(nombre) {
+//     return new Promise((resolve, reject) => {
+//         setTimeout(function () {
+//             console.log('Hola ' + nombre);
+//             resolve(nombre);
+//         }, 2000);
+//     });
+// }
+
+// function hablar(nombre) {
+//     return new Promise((resolve, reject) => {
+//         setTimeout(() => {
+//             console.log('Blablabla');
+//             // resolve(nombre);
+//             reject('Hay un error con la function hablar');
+//         }, 1000);
+//     });
+// }
+
+// function adios(nombre) {
+//     return new Promise((resolve, reject) => {
+//         setTimeout(function () {
+//             console.log('adios ' + nombre);
+//             resolve(nombre);
+//         }, 1000);
+//     });
+// }
+
+
+
+// console.log('Iniciando el proceso');
+// hola('carlos')
+//     .then(hablar)
+//     .then(adios)
+//     .catch(error => console.log(error));
+// console.log('Finalizando el proceso'); 
+
+//------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+async function hola(nombre) {
     return new Promise((resolve, reject) => {
         setTimeout(function () {
             console.log('Hola ' + nombre);
@@ -586,7 +625,7 @@ function hablar(nombre) {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
             console.log('Blablabla');
-            // resolve(nombre);
+            resolve(nombre);
             reject('Hay un error con la function hablar');
         }, 1000);
     });
@@ -602,10 +641,14 @@ function adios(nombre) {
 }
 
 
+async function main() {
+    let nombre = await hola('Menem');
+    await hablar();
+    await hablar();
+    await hablar();
+    await adios(nombre);
+    console.log('Fin');
+}
 
-console.log('Iniciando el proceso');
-hola('carlos')
-    .then(hablar)
-    .then(adios)
-    .catch(error => console.log(error));
-console.log('Finalizando el proceso'); 
+console.log('Inicio');
+main();
