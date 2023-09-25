@@ -765,32 +765,47 @@
 
 //------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-class Animal {
+// class Animal {
 
-    constructor(animal, sonido, compPositivo, compNegativo) {
-        this.animal = animal;
-        this.sonidoAnimal = sonido;
-        this.comportamientoPositivo = compPositivo;
-        this.comportamientoNegativo = compNegativo;
+//     constructor(animal, sonido, compPositivo, compNegativo) {
+//         this.animal = animal;
+//         this.sonidoAnimal = sonido;
+//         this.comportamientoPositivo = compPositivo;
+//         this.comportamientoNegativo = compNegativo;
+//     }
+
+
+//     elAnimalHace() {
+//         return (`El ${this.animal} hace: ${this.sonidoAnimal}`)
+//     }
+
+// }
+
+// class Perro extends Animal {
+
+//     elPerroHace() {
+//         return `el ${this.animal}, hace ${this.sonidoAnimal}, tiene un comportamiento positivo ${this.comportamientoPositivo} y un negativo ${this.comportamientoNegativo}`
+//     }
+
+// }
+
+// const perro1 = new Perro('perro1', 'guauPuto', 'fidelidad', 'muerde');
+
+// console.log(perro1);
+
+//------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+function classroom(teacher) {
+    return function study() {
+        console.log(`${teacher} says to study ${this.topic}`);
     }
-
-
-    elAnimalHace() {
-        return (`El ${this.animal} hace: ${this.sonidoAnimal}`)
-    }
-
 }
 
+const maestro = classroom('Kyle');
 
-class Perro extends Animal {
-
-    elPerroHace() {
-        return `el ${this.animal}, hace ${this.sonidoAnimal}, tiene un comportamiento positivo ${this.comportamientoPositivo} y un negativo ${this.comportamientoNegativo}`
-    }
-
-
+var homework = {
+    topic: "JS",
+    maestro: maestro
 }
 
-const perro1 = new Perro('perro1', 'guauPuto', 'fidelidad', 'muerde');
-
-console.log(perro1);
+homework.maestro();
