@@ -612,43 +612,185 @@
 
 //------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-async function hola(nombre) {
-    return new Promise((resolve, reject) => {
-        setTimeout(function () {
-            console.log('Hola ' + nombre);
-            resolve(nombre);
-        }, 2000);
-    });
+// async function hola(nombre) {
+//     return new Promise((resolve, reject) => {
+//         setTimeout(function () {
+//             console.log('Hola ' + nombre);
+//             resolve(nombre);
+//         }, 2000);
+//     });
+// }
+
+// function hablar(nombre) {
+//     return new Promise((resolve, reject) => {
+//         setTimeout(() => {
+//             console.log('Blablabla');
+//             resolve(nombre);
+//             reject('Hay un error con la function hablar');
+//         }, 1000);
+//     });
+// }
+
+// function adios(nombre) {
+//     return new Promise((resolve, reject) => {
+//         setTimeout(function () {
+//             console.log('adios ' + nombre);
+//             resolve(nombre);
+//         }, 1000);
+//     });
+// }
+
+
+// async function main() {
+//     let nombre = await hola('Menem');
+//     await hablar();
+//     await hablar();
+//     await hablar();
+//     await adios(nombre);
+//     console.log('Fin');
+// }
+
+// console.log('Inicio');
+// main();
+
+//------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+// const f = function createHelloWorld() {
+//     return (function hello() {
+//         return "Hello World"
+//     })()
+// }
+
+
+// console.log(f());
+
+//------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+// function padre() {
+
+//     const x = 10;
+
+//     function hijo() {
+//         console.log(x);
+//     }
+
+//     return hijo;
+
+// }
+
+// const miFuncion = padre();
+
+// miFuncion();
+
+//------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+// function greeting(msg) {
+//     return function who(name) {
+//         console.log(`${msg}, ${name}`)
+//     }
+// }
+
+// const hello = greeting('Hello');
+
+// hello('kyle');
+
+
+//------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+// function counter(step = 1) {
+//     let count = 0;
+//     return function increaseCount() {
+//         count = count + step;
+//         return count;
+//     };
+// }
+
+// let incBy1 = counter(1)
+
+// console.log(incBy1());
+// console.log(incBy1());
+
+//------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+// function exterior() {
+//     const variableExterior = 'Hey! soy la variable exterior';
+//     return function interior() {
+//         const variableInterior = 'Hey! soy la variable interior';
+//         console.log(variableInterior);
+//         console.log(variableExterior);
+//     }
+// }
+
+// const fnInterior = exterior();
+
+// fnInterior();
+
+
+//------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+// class Page {
+//     constructor(text) {
+//         this.text = text;
+//     }
+
+//     print() {
+//         console.log(this.text);
+//     }
+// }
+
+// class Notebook {
+//     constructor() {
+//         this.pages = [];
+//     }
+
+//     addPage(text) {
+//         var page = new Page(text);
+//         this.pages.push(page);
+//     }
+
+//     print() {
+//         for (let page of this.pages) {
+//             page.print();
+//         }
+//     }
+// }
+
+// var mathNotes = new Notebook();
+// mathNotes.addPage("Arithmetic: + - * / ...");
+// mathNotes.addPage("Trigonometry: sin cos tan ...");
+
+// mathNotes.print();
+
+//------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+class Animal {
+
+    constructor(animal, sonido, compPositivo, compNegativo) {
+        this.animal = animal;
+        this.sonidoAnimal = sonido;
+        this.comportamientoPositivo = compPositivo;
+        this.comportamientoNegativo = compNegativo;
+    }
+
+
+    elAnimalHace() {
+        return (`El ${this.animal} hace: ${this.sonidoAnimal}`)
+    }
+
 }
 
-function hablar(nombre) {
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            console.log('Blablabla');
-            resolve(nombre);
-            reject('Hay un error con la function hablar');
-        }, 1000);
-    });
+
+class Perro extends Animal {
+
+    elPerroHace() {
+        return `el ${this.animal}, hace ${this.sonidoAnimal}, tiene un comportamiento positivo ${this.comportamientoPositivo} y un negativo ${this.comportamientoNegativo}`
+    }
+
+
 }
 
-function adios(nombre) {
-    return new Promise((resolve, reject) => {
-        setTimeout(function () {
-            console.log('adios ' + nombre);
-            resolve(nombre);
-        }, 1000);
-    });
-}
+const perro1 = new Perro('perro1', 'guauPuto', 'fidelidad', 'muerde');
 
-
-async function main() {
-    let nombre = await hola('Menem');
-    await hablar();
-    await hablar();
-    await hablar();
-    await adios(nombre);
-    console.log('Fin');
-}
-
-console.log('Inicio');
-main();
+console.log(perro1);
