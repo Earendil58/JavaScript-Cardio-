@@ -1,4 +1,4 @@
-// console.log('casa' === 'casa' ? 'si' : 'no');  //operador ternario 
+// console.log('casa' === 'casa' ? 'si' : 'no');  //operador ternario
 
 // console.log(typeof ('5' - 1));
 // console.log(8 * null);
@@ -608,7 +608,7 @@
 //     .then(hablar)
 //     .then(adios)
 //     .catch(error => console.log(error));
-// console.log('Finalizando el proceso'); 
+// console.log('Finalizando el proceso');
 
 //------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -795,17 +795,28 @@
 
 //------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-function classroom(teacher) {
-    return function study() {
-        console.log(`${teacher} says to study ${this.topic}`);
-    }
-}
+// function classroom(teacher) {
+//     return function study() {
+//         console.log(`${teacher} says to study ${this.topic}`);
+//     }
+// }
 
-const maestro = classroom('Kyle');
+// const maestro = classroom('Kyle');
 
-var homework = {
-    topic: "JS",
-    maestro: maestro
-}
+// var homework = {
+//     topic: "JS",
+//     maestro: maestro
+// }
 
-homework.maestro();
+// homework.maestro();
+
+//------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
