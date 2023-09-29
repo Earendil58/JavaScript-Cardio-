@@ -7,6 +7,12 @@ function findOutlier(...integers) {
     for (let element in integerArray) {
         let odd = 0;
         let even = 0
+
+        if ((integerArray[element] % 2) === 0) {
+            even += 1
+        } else {
+            odd += 1
+        }
     }
 
 
