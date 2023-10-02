@@ -4,20 +4,27 @@ function findOutlier(...integers) {
     const integerArray = [];
     integerArray.push(...integers);
 
-    for (let element in integerArray) {
-        let odd = 0;
-        let even = 0
+    let oddArray = [];
+    let evenArray = [];
 
-        if ((integerArray[element] % 2) === 0) {
-            even += 1
+    for (let element of integerArray) {
+        if ((element % 2) === 0) {
+            evenArray.push(element);
         } else {
-            odd += 1
+            oddArray.push(element);
         }
     }
 
+    if (oddArray.length > 1) {
+        console.log('Its an odd array');
+    } else {
+        console.log('Its an even array');
+    }
+
+    return integerArray;
 
 }
 
 
-console.log(findOutlier(1, 2, 3, 4, 5));
+console.log(findOutlier(2, 4, 7, 8, 10));
 

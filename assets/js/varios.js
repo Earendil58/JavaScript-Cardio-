@@ -812,7 +812,28 @@
 
 //------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+array = [1, 3, 5, 7, 9, 10];
 
+evenArray = [];
+oddArray = [];
+
+
+for (let elemento of array) {
+    if (elemento % 2 === 0) {
+        evenArray.push(elemento);
+    }
+    else {
+        oddArray.push(elemento)
+    }
+
+}
+
+if (evenArray.length > 1) {
+    console.log('Its an even Array');
+}
+else {
+    console.log('Its an odd Array');
+}
 
 
 
