@@ -837,20 +837,50 @@
 
 //------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-const hora = '17.45';
+// function creaFuncion() {
+//     var variableExterna = "¡Hola, soy externa!";
 
-function añadirMinutosAHora(horaEnString, minutosAñadir) {
-    horaEnPartes = horaEnString.split('.');
-    minutosANumber = +horaEnPartes[1]
-    sumarMinutosAHora = minutosANumber + minutosAñadir;
+//     function muestraMensaje() {
+//         console.log(variableExterna);
+//     }
 
-    if (sumarMinutosAHora > 60) {
-        horaEnPartes[0]
-    }
-}
+//     return muestraMensaje;
+// }
+
+// // Crear una función a través de creaFuncion
+// var miClosure = creaFuncion();
+
+// // Llamar a la función creada
+// miClosure(); // Imprimirá: ¡Hola, soy externa!
+
+//------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+// // JavaScript
+// const num1 = parseFloat(prompt("Ingrese el primer número:"));
+// const num2 = parseFloat(prompt("Ingrese el segundo número:"));
+// const num3 = parseFloat(prompt("Ingrese el tercer número:"));
+
+// let mayor = num1;
+
+// if (num2 > mayor) {
+//     mayor = num2;
+// }
+
+// if (num3 > mayor) {
+//     mayor = num3;
+// }
+
+// console.log("El mayor número es: " + mayor);
+
+//------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-console.log(añadirMinutosAHora('17.45'));
+
+
+
+
+
+
 
 
 
