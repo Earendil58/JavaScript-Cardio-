@@ -874,6 +874,70 @@
 
 //------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+// const deportes = ['futbol', 'basquet', 'golf'];
+
+// console.log(deportes.map(deporte => {
+//     return `Deporte: ${deporte.toUpperCase()}`;
+// }));
+
+//------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+// const number = 14;
+
+// number = 15 // ESTO NO SE PUEDE, PORQUE ES UN VALOR PRIMITIVO, Y NO ES POSIBLE REASIGNAR UNA CONSTANTE. SE ALMACENAN DIRECTAMENTE EN LA UBICACION DE LA MEMORIA ASIGNADA
+
+// console.log(number); 
+
+// const primerArray = [1, 2, 3];
+
+// primerArray[1] = 7;
+
+// console.log(primerArray); // ESTO ES VALIDO PORQUE SE PASA POR REFERENCIA A LA UBICACION EN MEMORIA
+
+//------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+// const deportesActuales = ['futbol', 'basquet', 'golf'];
+
+// console.log(deportesActuales);
+
+// deportesActuales.push('teto');
+
+// console.log(deportesActuales);
+
+// const nuevosDeportes = [...deportesActuales];
+
+// console.log('esto es nuevosDeportes', nuevosDeportes);
+
+//------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+// function toArray(...args) {
+//     return args;
+// }
+
+// console.log(toArray(1, 2, 3, 4, 5, 6, 7));
+
+//------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+const persona = {
+    nombre: 'Charly',
+    apellido: 'Menem',
+    edad: 101,
+    hobbies: ['convertibilidad', 'privatizar', '1 a 1'],
+    glorySlang() {
+        return `Soy el gran ${this.nombre} ${this.apellido}`;
+    }
+}
+
+// console.log(persona.glorySlang());
+// console.log(persona.nombre);
+// console.log(persona.apellido);
+
+const { nombre, apellido, edad } = persona;
+
+console.log(nombre);
+console.log(edad);
+console.log(apellido);
+
 
 
 
