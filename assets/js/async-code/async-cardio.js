@@ -77,17 +77,85 @@
 //     })
 
 
-function hacerPizza(toppings = []) {
-    return pizzaPromise = new Promise((resolve, reject) => {
-        tiempoDeCoccion = 1000 + (toppings.length) * 1000
-        setTimeout(function () {
-            resolve(`Acá está tu pizza, tiene: ${toppings.join('-')}`)
+// async function hacerPizza(toppings = []) {
+//     let tiempoDeCoccion = 1000 + (toppings.length * 500)
+
+//     await setTimeout(() => {
+//         return `Acá está tu pizza, tiene: ${toppings.join('-')}`
+//     }, tiempoDeCoccion)
+// }
+
+// hacerPizza(['jamon', 'queso', 'huevo']);
+
+
+// function basicPromise() {
+//     return new Promise((resolve, reject) => {
+//         const exito = false;
+
+//         if (exito) {
+//             resolve('Un exito perro');
+//         }
+//         else {
+//             reject('Algo fallo perro');
+//         }
+//     });
+// }
+
+// function atrapaErrores(err) {
+//     console.log(`Error capturado: ${err}`);
+// }
+
+// basicPromise()
+//     .then(data => console.log(data))
+//     .catch(atrapaErrores);
+
+
+// function obtenerDatos(username) {
+//     url = `https://api.github.com/users/${username}`;
+
+//     return fetch(url)
+
+// }
+
+// async function mostrarDatos() {
+
+//     try {
+//         console.log('Obteniendo datos');
+//         const datosCrudos = await obtenerDatos('Earendil58')
+//         const datosProcesados = await datosCrudos.json()
+//         console.log(`Datos recibidos: ${JSON.stringify(datosProcesados)}`);
+//     }
+//     catch (error) {
+//         console.log(`Error: ${error}`);
+//     }
+// }
+
+// mostrarDatos();
+
+function basisPromise() {
+    return new Promise(function (resolve, reject) {
+        const success = true;
+
+        if (success) {
+            resolve('The request was successful');
         }
-            , tiempoDeCoccion)
+        else {
+            reject('Ops, we got an error');
+        }
     })
 }
 
-hacerPizza(['jamon', 'queso'])
-    .then(data => {
-        console.log(data);
-    })
+async function showPromise() {
+    try {
+        console.log('Empezando');
+        const thePromiseToResponse = await basisPromise()
+        console.log('Terminando');
+
+        console.log(thePromiseToResponse);
+    }
+    catch (error) {
+        console.log(error);
+    }
+}
+
+showPromise();
