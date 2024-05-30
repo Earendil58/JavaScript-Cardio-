@@ -132,30 +132,48 @@
 
 // mostrarDatos();
 
-function basisPromise() {
-    return new Promise(function (resolve, reject) {
-        const success = true;
+// function basisPromise() {
+//     return new Promise(function (resolve, reject) {
+//         const success = true;
 
-        if (success) {
-            resolve('The request was successful');
-        }
-        else {
-            reject('Ops, we got an error');
-        }
+//         if (success) {
+//             resolve('The request was successful');
+//         }
+//         else {
+//             reject('Ops, we got an error');
+//         }
+//     })
+// }
+
+// async function showPromise() {
+//     try {
+//         console.log('Empezando');
+//         const thePromiseToResponse = await basisPromise()
+//         console.log('Terminando');
+
+//         console.log(thePromiseToResponse);
+//     }
+//     catch (error) {
+//         console.log(error);
+//     }
+// }
+
+// showPromise();
+
+
+const endpoint = `https://api.github.com/users/wesbos`
+
+const endpointPromise = fetch(endpoint)
+
+endpointPromise
+    .then(promiseData => {
+        return promiseData.json();
     })
-}
+    .then(fromPromiseToData => {
+        console.log(fromPromiseToData);
+    })
+    .catch(err => {
+        console.log(err);
+    })
 
-async function showPromise() {
-    try {
-        console.log('Empezando');
-        const thePromiseToResponse = await basisPromise()
-        console.log('Terminando');
 
-        console.log(thePromiseToResponse);
-    }
-    catch (error) {
-        console.log(error);
-    }
-}
-
-showPromise();
