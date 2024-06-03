@@ -1,5 +1,3 @@
-
-
 class Product {
 
     constructor(title, imageURL, price, description) {
