@@ -1,5 +1,6 @@
 
 import { Product } from "./product.js";
+import { ProductItem } from "./product-item.js";
 
 class ProductList {
     constructor() { }
@@ -24,13 +25,22 @@ class ProductList {
             6.65
         )
     ];
-}
 
-const listaUno = new ProductList();
 
-listaUno.products.forEach(product => {
-    console.log(`Titulo: ${product.title}`);
-    console.log(`Foto: ${product.image}`);
-    console.log(`Precio: ${product.price}`);
-    console.log(`Descripcion: ${product.description}`);
-});
+    render() {
+        const renderHook = document.getElementById('app');
+        const prodList = document.createElement('ul');
+        prodList.className = 'product-list';
+        for (const prod of this.products) {
+            const productItem = new ProductItem(prod);
+            const prodEl = productItem.render();
+            prodList.append(prodEl);
+        }
+        renderHook.append(prodList);
+    }
+};
+
+const producto1 = new ProductList()
+
+producto1.render();
+
