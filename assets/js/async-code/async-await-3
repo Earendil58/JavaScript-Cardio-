@@ -11,6 +11,17 @@ function somethingNeedsToWait() {
 }
 
 
-const promiseUno = somethingNeedsToWait();
 
-console.log(promiseUno);
+async function readindPromise() {
+    try {
+        console.log('Starting');
+        const promiseResponse = await somethingNeedsToWait();
+        console.log('Finishing');
+        console.log(promiseResponse);
+    }
+    catch (error) {
+        console.log(error);
+    }
+}
+
+readindPromise();
