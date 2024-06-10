@@ -1,0 +1,16 @@
+function somethingNeedsToWait() {
+    return new Promise(function (resolve, reject) {
+        const success = true
+        if (success) {
+            resolve('It was resolve with success');
+        }
+        else {
+            reject('It was rejected');
+        }
+    })
+}
+
+
+const promiseUno = somethingNeedsToWait();
+
+console.log(promiseUno);
