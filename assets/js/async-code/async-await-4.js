@@ -45,21 +45,54 @@
 //     console.log(resultado);
 // })
 
-function numeroAleatorio() {
+// function numeroAleatorio() {
+//     return new Promise((resolve, reject) => {
+//         setInterval(() => {
+//             const numeroAleatorio = Math.floor(Math.random() * 100);
+//             resolve(numeroAleatorio)
+//         }, 1000)
+//     })
+// }
+
+// const numeroRandom = numeroAleatorio();
+
+// numeroRandom.then(resultado => {
+//     console.log(`Este es el primer resultado: ${resultado}`)
+//     return resultado * 2
+// })
+//     .then(resultado => {
+//         console.log(`Este es el segundo resultado: ${resultado}`);
+//         return resultado * 2
+//     })
+//     .then(resultado => {
+//         console.log(`Este es el segundo resultado: ${resultado}`);
+//         return resultado * 2
+//     })
+
+function promesa3() {
     return new Promise((resolve, reject) => {
-        setInterval(() => {
-            const numeroAleatorio = Math.floor(Math.random() * 100);
-            resolve(numeroAleatorio)
+        setTimeout(() => {
+            if (Math.random() < 0.5) {
+                resolve('La promesa se resolvió exitosamente');
+            }
+            else {
+                reject(new Error('La promesa fue rechazada'));
+            }
         }, 1000)
     })
 }
 
-const numeroRandom = numeroAleatorio();
 
-numeroRandom.then(resultado => {
-    console.log(`Este es el primer resultado: ${resultado}`)
-    return resultado * 2
-}).then(resultado => {
-    console.log(`Este es el segundo resultado: ${resultado}`);
-    return resultado * 2
-});
+// const averiguarExito = promesa3()
+
+// averiguarExito.then(resultado => {
+//     console.log(resultado)
+// })
+//     .catch(err => { console.log(err) });
+
+async function manejarPromesa3() {
+    const leerPromesa3 = await promesa3();
+    console.log(`Acá estoy leyendo la promesa 3: ${leerPromesa3}`);
+}
+
+manejarPromesa3();
