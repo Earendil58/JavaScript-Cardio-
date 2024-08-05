@@ -69,30 +69,51 @@
 //         return resultado * 2
 //     })
 
-function promesa3() {
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            if (Math.random() < 0.5) {
-                resolve('La promesa se resolvió exitosamente');
-            }
-            else {
-                reject(new Error('La promesa fue rechazada'));
-            }
-        }, 1000)
+// function promesa3() {
+//     return new Promise((resolve, reject) => {
+//         setTimeout(() => {
+//             if (Math.random() < 0.5) {
+//                 resolve('La promesa se resolvió exitosamente');
+//             }
+//             else {
+//                 reject(new Error('La promesa fue rechazada'));
+//             }
+//         }, 1000)
+//     })
+// }
+
+
+// // const averiguarExito = promesa3()
+
+// // averiguarExito.then(resultado => {
+// //     console.log(resultado)
+// // })
+// //     .catch(err => { console.log(err) });
+
+// async function manejarPromesa3() {
+//     const leerPromesa3 = await promesa3();
+//     console.log(`Acá estoy leyendo la promesa 3: ${leerPromesa3}`);
+// }
+
+// manejarPromesa3();
+
+function promesa4() {
+    const promiseArray = new Promise((resolve, reject) => {
+        const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+        if (array) {
+            resolve(array);
+        }
+        else {
+            reject('No hay array');
+        }
     })
+
+    return promiseArray
 }
 
+const arrayPromesa = promesa4();
 
-// const averiguarExito = promesa3()
-
-// averiguarExito.then(resultado => {
-//     console.log(resultado)
-// })
-//     .catch(err => { console.log(err) });
-
-async function manejarPromesa3() {
-    const leerPromesa3 = await promesa3();
-    console.log(`Acá estoy leyendo la promesa 3: ${leerPromesa3}`);
-}
-
-manejarPromesa3();
+arrayPromesa.then(result => {
+    const resultadoReduce = result.reduce((acc, num) => acc + num, 0);
+    console.log(resultadoReduce);
+})
