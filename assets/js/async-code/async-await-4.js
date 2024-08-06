@@ -97,23 +97,55 @@
 
 // manejarPromesa3();
 
-function promesa4() {
-    const promiseArray = new Promise((resolve, reject) => {
-        const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-        if (array) {
-            resolve(array);
-        }
-        else {
-            reject('No hay array');
-        }
-    })
+// function promesa4() {
+//     const promiseArray = new Promise((resolve, reject) => {
+//         const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+//         if (array) {
+//             resolve(array);
+//         }
+//         else {
+//             reject('No hay array');
+//         }
+//     })
 
-    return promiseArray
+//     return promiseArray
+// }
+
+// const arrayPromesa = promesa4();
+
+// arrayPromesa.then(result => {
+//     const resultadoReduce = result.reduce((acc, num) => acc + num, 0);
+//     console.log(resultadoReduce);
+// });
+
+
+function promiseA() {
+    return new Promise((resolve, reject) => {
+        setInterval(() => {
+            resolve('Resuelta luego de 1 seg');
+        }, 1000)
+    });
 }
 
-const arrayPromesa = promesa4();
+function promiseB() {
+    const promiseB = new Promise(function (resolve) {
+        setInterval(() => {
+            resolve('Resuelta luego de 2 segs');
+        }, 2000)
+    })
 
-arrayPromesa.then(result => {
-    const resultadoReduce = result.reduce((acc, num) => acc + num, 0);
-    console.log(resultadoReduce);
+    return promiseB;
+}
+
+const promiseC = new Promise((resolve) => {
+    setInterval(() => {
+        resolve('Resuelta luego de 3 segs');
+    }, 3000);
+})
+
+const promise1 = promiseA();
+const promise2 = promiseB();
+
+const promiseChain = Promise.all([promise1, promise2, promiseC]).then(resultados => {
+    console.log(resultados);
 })
